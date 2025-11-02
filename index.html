@@ -144,6 +144,7 @@
       <nav class="links" aria-label="Navegação principal">
         <a href="#features">Funcionalidades</a>
         <a href="#how">Como funciona</a>
+        <a href="#tecnicos">Torna-te técnico</a>
         <a href="#precos">Preços</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -385,6 +386,131 @@
     </div>
   </section>
 
+<!-- FORMULÁRIO PARA TÉCNICOS -->
+<section id="tecnicos">
+  <div class="container">
+    <h2 data-anim>Candidatura de Técnicos</h2>
+    <p class="sub" data-anim>Junta-te à rede Tech Guys. Pedidos geolocalizados, comissão justa e pagamentos garantidos.</p>
+
+    <form id="form-tecnico"
+          action="https://formsubmit.co/it.guys.pt@gmail.com"
+          method="POST"
+          onsubmit="prepTechForm(event)"
+          style="display:grid;gap:14px;margin-top:18px">
+      <!-- Config FormSubmit -->
+      <input type="hidden" name="_subject" value="Nova Candidatura de Técnico (Tech Guys)">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_next" id="tech-next" value="#obrigado">
+      <input type="text" name="_honey" style="display:none">
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+        <div>
+          <label for="t-nome">Nome completo*</label>
+          <input id="t-nome" name="nome" required placeholder="O teu nome"
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+        <div>
+          <label for="t-email">Email*</label>
+          <input id="t-email" type="email" name="email" required placeholder="email@exemplo.pt"
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+        <div>
+          <label for="t-tel">Telemóvel*</label>
+          <input id="t-tel" type="tel" name="telefone" required placeholder="+351 9.. .. .. .."
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+        <div>
+          <label for="t-local">Zona de atuação*</label>
+          <input id="t-local" name="localizacao" required placeholder="Cidade/Concelho (ex.: Lisboa, Oeiras)"
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <strong>Categorias de especialização*</strong>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
+          <label><input type="checkbox" name="categorias[]" value="Redes & Wi-Fi" required> Redes & Wi-Fi</label>
+          <label><input type="checkbox" name="categorias[]" value="PC/Mac"> PC/Mac</label>
+          <label><input type="checkbox" name="categorias[]" value="Smartphone/Tablet"> Smartphone/Tablet</label>
+          <label><input type="checkbox" name="categorias[]" value="Eletrodomésticos"> Eletrodomésticos</label>
+          <label><input type="checkbox" name="categorias[]" value="TV/AV"> TV/AV</label>
+          <label><input type="checkbox" name="categorias[]" value="IoT/Smart Home"> IoT/Smart Home</label>
+          <label><input type="checkbox" name="categorias[]" value="CCTV/Segurança"> CCTV/Segurança</label>
+          <label><input type="checkbox" name="categorias[]" value="Impressoras"> Impressoras</label>
+          <label><input type="checkbox" name="categorias[]" value="Software/Sistemas"> Software/Sistemas</label>
+        </div>
+        <small class="muted">Seleciona pelo menos uma categoria.</small>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div>
+          <label for="t-exp">Experiência (anos)*</label>
+          <input id="t-exp" type="number" name="experiencia_anos" min="0" required placeholder="Ex.: 3"
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+        <div>
+          <label for="t-dispo">Disponibilidade*</label>
+          <select id="t-dispo" name="disponibilidade" required
+                  style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+            <option value="">Seleciona…</option>
+            <option>Manhã</option>
+            <option>Tarde</option>
+            <option>Noite</option>
+            <option>Fins de semana</option>
+            <option>Full-time</option>
+          </select>
+        </div>
+        <div>
+          <label for="t-concelhos">Concelhos cobertos</label>
+          <input id="t-concelhos" name="concelhos" placeholder="Ex.: Lisboa, Oeiras, Cascais"
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+        <div>
+          <label for="t-link">Portefólio/LinkedIn</label>
+          <input id="t-link" type="url" name="portfolio" placeholder="URL do teu portefólio ou LinkedIn"
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+        <div>
+          <label for="t-nif">NIF (opcional)</label>
+          <input id="t-nif" name="nif" placeholder="XXXXXXXXX" pattern="[0-9]{9}"
+                 style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)">
+        </div>
+      </div>
+
+      <div>
+        <label for="t-notas">Notas adicionais</label>
+        <textarea id="t-notas" name="notas" rows="4"
+                  placeholder="Conta-nos mais sobre a tua experiência, certificações, ferramentas, transporte, etc."
+                  style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--text)"></textarea>
+      </div>
+
+      <label style="display:flex;gap:10px;align-items:flex-start">
+        <input type="checkbox" required name="aceito_termos">
+        <span>Li e aceito os <a href="#" onclick="alert('Termos de Serviço em breve')">Termos</a> e a
+          <a href="#" onclick="alert('Política de Privacidade em breve')">Política de Privacidade</a>.
+          Autorizo o contacto para efeitos de recrutamento/validação.</span>
+      </label>
+
+      <div class="cta" style="margin-top:6px">
+        <button class="btn" type="submit">Enviar candidatura</button>
+        <a class="btn secondary"
+           href="https://wa.me/351924460295?text=Candidatura%20Tech%20Guys%20-%20Tenho%20d%C3%BAvidas"
+           target="_blank" rel="noopener">Tirar dúvidas por WhatsApp</a>
+      </div>
+    </form>
+
+    <div id="obrigado" class="card" style="margin-top:18px;display:none">
+      <h3>Obrigado! 🎉</h3>
+      <p>Recebemos a tua candidatura. A nossa equipa vai analisar e entra em contacto por email/telefone.</p>
+    </div>
+  </div>
+</section>
+
+  
   <section id="faq">
     <div class="container">
       <h2 data-anim>Perguntas frequentes</h2>
@@ -479,6 +605,24 @@
       alert(`Obrigado! Adicionámos ${email} à lista de espera.`)
     }
   </script>
+
+  <script>
+  // ... mantém o que já tens ...
+
+  // Preparar redirecionamento suave do formulário de técnicos
+  function prepTechForm(ev){
+    const next=document.getElementById('tech-next');
+    if(next){ next.value = (location.href.split('#')[0]||location.href) + '#obrigado'; }
+    // mostra o cartão se voltarmos com #obrigado
+    setTimeout(()=>{ if(location.hash==="#obrigado"){ const ok=document.getElementById('obrigado'); if(ok) ok.style.display='block'; } }, 500);
+  }
+
+  // Mostrar cartão Obrigado se a página abrir com o hash
+  window.addEventListener('load',()=>{
+    if(location.hash==="#obrigado"){ const ok=document.getElementById('obrigado'); if(ok) ok.style.display='block'; }
+  });
+</script>
+
 </body>
 </html>
 
