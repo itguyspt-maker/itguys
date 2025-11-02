@@ -117,6 +117,20 @@
     [data-anim]{opacity:0;transform:translateY(10px);transition:all .6s ease}
     [data-anim].show{opacity:1;transform:none}
   </style>
+  <!-- SEO extra -->
+  <meta name="author" content="Tech Guys">
+  <meta name="robots" content="index,follow">
+  <meta property="og:url" content="https://example.com">
+  <meta property="og:image" content="https://example.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Analytics (substituir pelo teu ID GA4) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
 </head>
 <body>
   <header>
@@ -146,6 +160,9 @@
         <div class="cta" data-anim>
           <a class="btn" href="#cta">Quero experimentar</a>
           <a class="btn secondary" href="#how">Ver como funciona</a>
+          <a class="btn" href="https://wa.me/351924460295?text=Ol%C3%A1%20Tech%20Guys!%20Preciso%20de%20ajuda%20t%C3%A9cnica." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+            💬 WhatsApp
+          </a>
         </div>
         <div class="badgebar" data-anim>
           <span class="badge">Seguro & pagamentos protegidos</span>
@@ -342,11 +359,17 @@
         <h2>Queres ser o primeiro a experimentar?</h2>
         <p class="sub">Entra na lista de espera e recebe acesso antecipado, promoções e convites para beta.</p>
         <!-- Integração simples: Netlify Forms (deixa o atributo name) ou Formspree (substituir action) -->
-        <form name="waitlist" method="POST" data-netlify="true" onsubmit="thanks(event)" style="display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:12px">
-          <input type="hidden" name="form-name" value="waitlist">
+        <form name="waitlist" method="POST" action="https://formsubmit.co/it.guys.pt@gmail.com" onsubmit="thanks(event)" style="display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:12px">
+          <!-- Proteções básicas -->
+          <input type="hidden" name="_subject" value="Novo pedido de acesso antecipado (Tech Guys)">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="table">
+
           <input required name="email" type="email" placeholder="O teu email" aria-label="Email" style="border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);padding:14px;color:var(--text)">
           <button class="btn" type="submit">Entrar</button>
         </form>
+        <small class="muted">Os formulários são enviados para <a href="mailto:it.guys.pt@gmail.com">it.guys.pt@gmail.com</a>. Podes sair quando quiseres.</small>
         <small class="muted">Sem spam. Podes sair quando quiseres.</small>
       </div>
       <div class="card" data-anim>
@@ -380,6 +403,35 @@
     </div>
   </section>
 
+  <!-- CONTACTOS & SOBRE NÓS -->
+  <section id="contactos">
+    <div class="container">
+      <h2 data-anim>Contactos</h2>
+      <p class="sub" data-anim>Fala connosco por email, telefone ou WhatsApp. Estamos disponíveis 7 dias por semana.</p>
+      <div class="grid-3">
+        <div class="card" data-anim>
+          <h3>Email</h3>
+          <p><a href="mailto:it.guys.pt@gmail.com">it.guys.pt@gmail.com</a></p>
+        </div>
+        <div class="card" data-anim>
+          <h3>Telefone</h3>
+          <p><a href="tel:+351924460295">+351 924 460 295</a></p>
+        </div>
+        <div class="card" data-anim>
+          <h3>WhatsApp</h3>
+          <p><a class="btn" href="https://wa.me/351924460295?text=Ol%C3%A1%20Tech%20Guys!%20Preciso%20de%20ajuda%20t%C3%A9cnica." target="_blank" rel="noopener">Abrir conversa</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <h2 data-anim>Sobre a Tech Guys</h2>
+      <p class="sub" data-anim>Conectamos clientes a técnicos verificados para resolver problemas do dia-a-dia com tecnologia. Transparência, segurança e rapidez são os nossos pilares.</p>
+    </div>
+  </section>
+
   <footer>
     <div class="container foot">
       <div class="brand">
@@ -391,7 +443,12 @@
         <a href="#how">Como funciona</a>
         <a href="#precos">Preços</a>
         <a href="#faq">FAQ</a>
+        <a href="#contactos">Contactos</a>
         <a href="#" onclick="alert('Política de Privacidade em breve')">Privacidade</a>
+        <a href="#" onclick="alert('Termos de Serviço em breve')">Termos</a>
+      </div>
+      <div>
+        <a href="mailto:it.guys.pt@gmail.com">it.guys.pt@gmail.com</a> · <a href="tel:+351924460295">+351 924 460 295</a> · <a href="https://wa.me/351924460295" target="_blank" rel="noopener">WhatsApp</a>
       </div>
       <div>© <span id="year"></span> Tech Guys. Todos os direitos reservados.</div>
     </div>
